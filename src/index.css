@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
-  overflow: hidden; /* Prevent scroll on body, let React Flow handle it */
+  /* Prevent scroll on body, let React Flow handle it */
 }
