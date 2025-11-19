@@ -64,6 +64,7 @@ function App() {
           step={selectedStep}
           onClose={() => setSelectedStep(null)}
           pricingModel={flowData.pricing_model}
+          questionnaires={flowData.questionnaires}
         />
       </main>
     </div>

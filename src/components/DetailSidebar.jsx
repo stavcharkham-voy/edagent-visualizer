@@ -1,7 +1,7 @@
 import React from 'react';
-import { X, ExternalLink, CreditCard, List, Image as ImageIcon, Activity } from 'lucide-react';
+import { X, ExternalLink, CreditCard, List, Image as ImageIcon, Activity, HelpCircle } from 'lucide-react';
 
-const DetailSidebar = ({ step, onClose, pricingModel }) => {
+const DetailSidebar = ({ step, onClose, pricingModel, questionnaires }) => {
     if (!step) return null;
 
     return (
@@ -92,6 +92,37 @@ const DetailSidebar = ({ step, onClose, pricingModel }) => {
                             ))}
                         </div>
                     </section>
+                )}
+
+                {/* Questionnaire Questions */}
+                {step.questionnaire_ref && questionnaires && (
+                    (() => {
+                        const questionnaire = questionnaires.find(q => q.questionnaire_id === step.questionnaire_ref);
+                        if (!questionnaire) return null;
+
+                        return (
+                            <section>
+                                <h3 className="flex items-center gap-2 font-semibold text-gray-900 dark:text-white mb-3">
+                                    <HelpCircle size={18} /> Questions
+                                </h3>
+                                <div className="space-y-4">
+                                    {questionnaire.questions.map((q) => (
+                                        <div key={q.questionnaire_id || q.text} className="bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border border-gray-100 dark:border-gray-700">
+                                            <div className="font-medium text-sm mb-2">{q.text}</div>
+                                            <div className="flex flex-wrap gap-2">
+                                                {q.options && q.options.map((opt) => (
+                                                    <span key={opt.option_id} className="text-xs bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 px-2 py-1 rounded">
+                                                        {opt.text}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <div className="mt-2 text-[10px] text-gray-400 uppercase">{q.type}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        );
+                    })()
                 )}
 
                 {/* Screenshots */}
