@@ -1,0 +1,595 @@
+{
+  "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+  "company_id": "3b9d56f4-19e8-40e2-a5c1-07d62bb7a812",
+  "funnel_name": "Miro Web User Signup and Conversion Flow",
+  "created_at": "2025-11-10T14:00:00Z",
+  "platform": "web",
+  "entry_points": [
+    {
+      "source": "ad",
+      "url": "https://miro.com/signup/?utm_source=google&utm_medium=cpc&utm_campaign=brand_search",
+      "metadata": {
+        "campaign_id": "gads-miropaid-2025q4",
+        "utm_source": "google",
+        "utm_medium": "cpc",
+        "utm_campaign": "brand_search"
+      }
+    },
+    {
+      "source": "organic",
+      "url": "https://miro.com/",
+      "metadata": {
+        "campaign_id": "",
+        "utm_source": "",
+        "utm_medium": "",
+        "utm_campaign": ""
+      }
+    }
+  ],
+  "notes": "Exploration of Miro signup and onboarding flow through to paid conversion",
+  "pricing_model": {
+    "currency": "USD",
+    "plans": [
+      {
+        "plan_id": "plan_free",
+        "plan_name": "Free Plan",
+        "description": "For individuals or small teams getting started with online whiteboarding.",
+        "available_on": ["web", "ios", "android"],
+        "payment_intervals": [],
+        "features": [
+          "3 editable boards",
+          "Unlimited team members",
+          "Pre-built templates",
+          "Integrations with Slack and Google Drive"
+        ],
+        "upgrade_from": [],
+        "downgrade_to": [],
+        "in_app_purchase": false,
+        "web_purchase": false,
+        "urls": {
+          "purchase_page": "https://miro.com/pricing/",
+          "terms": "https://miro.com/legal/terms-of-service/",
+          "cancel_page": ""
+        }
+      },
+      {
+        "plan_id": "plan_starter",
+        "plan_name": "Starter Plan",
+        "description": "For teams that need unlimited boards and advanced collaboration tools.",
+        "available_on": ["web", "ios", "android"],
+        "payment_intervals": [
+          {
+            "interval_type": "monthly",
+            "price": 10.0,
+            "discounts": {
+              "trial_period_days": 7,
+              "trial_type": "free",
+              "renewal_rules": "auto",
+              "renewal_price": 10.0
+            }
+          },
+          {
+            "interval_type": "yearly",
+            "price": 96.0,
+            "discounts": {
+              "trial_period_days": 7,
+              "trial_type": "free",
+              "renewal_rules": "auto",
+              "renewal_price": 96.0
+            }
+          }
+        ],
+        "features": [
+          "Unlimited boards",
+          "High-quality PDF export",
+          "Private board sharing",
+          "Custom templates"
+        ],
+        "upgrade_from": ["plan_free"],
+        "downgrade_to": ["plan_free"],
+        "in_app_purchase": true,
+        "web_purchase": true,
+        "urls": {
+          "purchase_page": "https://miro.com/checkout/?plan=starter",
+          "terms": "https://miro.com/legal/terms-of-service/",
+          "cancel_page": "https://miro.com/account/billing/"
+        }
+      },
+      {
+        "plan_id": "plan_business",
+        "plan_name": "Business Plan",
+        "description": "For growing teams needing advanced collaboration and security.",
+        "available_on": ["web", "ios", "android"],
+        "payment_intervals": [
+          {
+            "interval_type": "monthly",
+            "price": 20.0,
+            "discounts": {
+              "trial_period_days": 14,
+              "trial_type": "free",
+              "renewal_rules": "auto",
+              "renewal_price": 20.0
+            }
+          },
+          {
+            "interval_type": "yearly",
+            "price": 192.0,
+            "discounts": {
+              "trial_period_days": 14,
+              "trial_type": "free",
+              "renewal_rules": "auto",
+              "renewal_price": 192.0
+            }
+          }
+        ],
+        "features": [
+          "Unlimited visitors",
+          "Advanced collaboration tools",
+          "Single Sign-On (SSO)",
+          "Custom templates and projects",
+          "Export and integration controls"
+        ],
+        "upgrade_from": ["plan_starter"],
+        "downgrade_to": ["plan_starter"],
+        "in_app_purchase": true,
+        "web_purchase": true,
+        "urls": {
+          "purchase_page": "https://miro.com/checkout/?plan=business",
+          "terms": "https://miro.com/legal/terms-of-service/",
+          "cancel_page": "https://miro.com/account/billing/"
+        }
+      },
+      {
+        "plan_id": "plan_enterprise",
+        "plan_name": "Enterprise Plan",
+        "description": "For large organizations with advanced security and admin controls.",
+        "available_on": ["web"],
+        "payment_intervals": [
+          {
+            "interval_type": "yearly",
+            "price": 288.0,
+            "discounts": {
+              "trial_period_days": 30,
+              "trial_type": "credit_based",
+              "renewal_rules": "manual",
+              "renewal_price": 288.0
+            }
+          }
+        ],
+        "features": [
+          "Enterprise-grade security and compliance (SOC 2, ISO 27001)",
+          "SSO and advanced user management",
+          "Centralized billing and admin controls",
+          "Premium support",
+          "Advanced analytics"
+        ],
+        "upgrade_from": ["plan_business"],
+        "downgrade_to": ["plan_business"],
+        "in_app_purchase": false,
+        "web_purchase": true,
+        "urls": {
+          "purchase_page": "https://miro.com/contact-sales/",
+          "terms": "https://miro.com/legal/enterprise-terms/",
+          "cancel_page": "https://miro.com/account/billing/"
+        }
+      }
+    ]
+  },
+  "steps": [
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "b7f210ac-5893-42c3-89ef-f6e7f9c81dc8",
+      "parent_step_id": null,
+      "step_name": "Landing Page - Miro Home",
+      "step_type": "landing_page",
+      "url_or_screen": "https://miro.com/",
+      "platform": "web",
+      "description": "User arrives on Miro homepage via ad or organic search. CTA directs to signup.",
+      "inputs": [],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "98a3f121-9c91-4638-bbda-bc532e3e4b5b",
+          "label": "Sign up free",
+          "action": "next_step",
+          "destination_step_id": "a2d77a9b-2615-4c45-9a47-0f8d52dc7b77",
+          "url": "https://miro.com/signup/",
+          "conditions": []
+        }
+      ],
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step1_home.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "landing_page_view",
+        "event_trigger": "page_load",
+        "pixel_or_sdk": ["google", "facebook"]
+      },
+      "next_steps": ["a2d77a9b-2615-4c45-9a47-0f8d52dc7b77"],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:01:00Z",
+      "notes": "Primary funnel entry point"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "a2d77a9b-2615-4c45-9a47-0f8d52dc7b77",
+      "parent_step_id": "b7f210ac-5893-42c3-89ef-f6e7f9c81dc8",
+      "step_name": "Signup Page",
+      "step_type": "registration",
+      "url_or_screen": "https://miro.com/signup/",
+      "platform": "web",
+      "description": "Registration form for new Miro users with Google, email, or SSO options.",
+      "inputs": [
+        {
+          "field_id": "email",
+          "label": "Work Email",
+          "type": "email",
+          "required": true,
+          "validation_rules": ["must contain @", "must be valid domain"],
+          "example_value": "user@company.com"
+        },
+        {
+          "field_id": "password",
+          "label": "Password",
+          "type": "password",
+          "required": true,
+          "validation_rules": ["min 8 chars", "1 number", "1 letter"],
+          "example_value": "MiroDemo123"
+        }
+      ],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "cc6e8e13-3bc8-41a4-b223-c214b1f3a311",
+          "label": "Continue with Email",
+          "action": "submit",
+          "destination_step_id": "94c8c557-7a3e-4e85-bf5a-4a3a8ab6a5a7",
+          "url": "https://miro.com/signup/team-setup/",
+          "conditions": []
+        },
+        {
+          "cta_id": "1ae48d62-5b8f-4b02-bc5a-30ab65d6b4f9",
+          "label": "Continue with Google",
+          "action": "external_link",
+          "destination_step_id": "94c8c557-7a3e-4e85-bf5a-4a3a8ab6a5a7",
+          "url": "https://accounts.google.com/o/oauth2/auth",
+          "conditions": []
+        }
+      ],
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step2_signup.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "registration_start",
+        "event_trigger": "form_submit",
+        "pixel_or_sdk": ["google", "adjust"]
+      },
+      "next_steps": ["94c8c557-7a3e-4e85-bf5a-4a3a8ab6a5a7"],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:03:00Z",
+      "notes": "Signup form validated successfully"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "94c8c557-7a3e-4e85-bf5a-4a3a8ab6a5a7",
+      "parent_step_id": "a2d77a9b-2615-4c45-9a47-0f8d52dc7b77",
+      "step_name": "Team Setup Page",
+      "step_type": "questionnaire",
+      "url_or_screen": "https://miro.com/signup/team-setup/",
+      "platform": "web",
+      "description": "User is asked to name their team and invite collaborators.",
+      "inputs": [
+        {
+          "field_id": "team_name",
+          "label": "Team Name",
+          "type": "text",
+          "required": true,
+          "validation_rules": ["min 2 chars"],
+          "example_value": "Voyantis Growth Team"
+        }
+      ],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "53b4b133-9a85-49d8-9e23-5c3a6d89cfc1",
+          "label": "Continue",
+          "action": "next_step",
+          "destination_step_id": "88a49dc2-3f5b-4d0c-8a3f-4de8e9274b4f",
+          "url": "https://miro.com/signup/onboarding/",
+          "conditions": []
+        }
+      ],
+      "questionnaire_ref": "f13d6b76-09b5-47f3-9b31-c1b42023a6c3",
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step3_teamsetup.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "team_setup_completed",
+        "event_trigger": "form_submit",
+        "pixel_or_sdk": ["google"]
+      },
+      "next_steps": ["88a49dc2-3f5b-4d0c-8a3f-4de8e9274b4f"],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:05:00Z",
+      "notes": "Team setup successful"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "88a49dc2-3f5b-4d0c-8a3f-4de8e9274b4f",
+      "parent_step_id": "94c8c557-7a3e-4e85-bf5a-4a3a8ab6a5a7",
+      "step_name": "Onboarding Questionnaire",
+      "step_type": "questionnaire",
+      "url_or_screen": "https://miro.com/onboarding/",
+      "platform": "web",
+      "description": "Multi-step onboarding survey to personalize workspace.",
+      "inputs": [],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "77d8d1e9-3154-4ab5-a39e-14a079efbb45",
+          "label": "Finish",
+          "action": "next_step",
+          "destination_step_id": "3a6b8eac-98f2-456a-9919-cf1b97a01aa9",
+          "url": "https://miro.com/app/dashboard/",
+          "conditions": []
+        }
+      ],
+      "questionnaire_ref": "b617db4d-67b7-4a2b-aef5-327cfb9f12af",
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step4_onboarding.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "onboarding_completed",
+        "event_trigger": "form_complete",
+        "pixel_or_sdk": ["adjust"]
+      },
+      "next_steps": ["3a6b8eac-98f2-456a-9919-cf1b97a01aa9"],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:07:00Z",
+      "notes": "User completed personalization flow"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "3a6b8eac-98f2-456a-9919-cf1b97a01aa9",
+      "parent_step_id": "88a49dc2-3f5b-4d0c-8a3f-4de8e9274b4f",
+      "step_name": "Dashboard and Invite Prompt",
+      "step_type": "other",
+      "url_or_screen": "https://miro.com/app/dashboard/",
+      "platform": "web",
+      "description": "New user lands on dashboard and is prompted to invite teammates or create a new board.",
+      "inputs": [],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "5e4f64d4-59c4-4a4b-bf8f-09c91e1d1ed7",
+          "label": "Invite teammates",
+          "action": "open_modal",
+          "destination_step_id": null,
+          "url": "",
+          "conditions": []
+        },
+        {
+          "cta_id": "ddad1f87-90d4-47a4-92a8-c59d6c8734b9",
+          "label": "Create new board",
+          "action": "next_step",
+          "destination_step_id": "7f5d41df-5e15-4b8d-bb93-bd43f4c5487d",
+          "url": "https://miro.com/app/board/new/",
+          "conditions": []
+        }
+      ],
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step5_dashboard.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "dashboard_view",
+        "event_trigger": "page_load",
+        "pixel_or_sdk": ["google"]
+      },
+      "next_steps": ["7f5d41df-5e15-4b8d-bb93-bd43f4c5487d"],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:08:00Z",
+      "notes": "Entry to product experience"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "7f5d41df-5e15-4b8d-bb93-bd43f4c5487d",
+      "parent_step_id": "3a6b8eac-98f2-456a-9919-cf1b97a01aa9",
+      "step_name": "Pricing Page Visit",
+      "step_type": "pricing_page",
+      "url_or_screen": "https://miro.com/pricing/",
+      "platform": "web",
+      "description": "User explores pricing tiers and subscription options.",
+      "inputs": [],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "7e40b512-f12f-4f91-9bc5-3cb7b54da9b8",
+          "label": "Upgrade Now",
+          "action": "payment_gateway",
+          "destination_step_id": "cda1e8fb-4f28-4db2-b8e3-7d03fbb4e4cc",
+          "url": "https://miro.com/checkout/",
+          "conditions": ["if plan_selected = 'Business'"]
+        }
+      ],
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step6_pricing.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "pricing_view",
+        "event_trigger": "page_load",
+        "pixel_or_sdk": ["google", "facebook"]
+      },
+      "next_steps": ["cda1e8fb-4f28-4db2-b8e3-7d03fbb4e4cc"],
+      "branching_logic": [
+        {
+          "condition": "if plan_selected = 'Business'",
+          "leads_to_step_id": "cda1e8fb-4f28-4db2-b8e3-7d03fbb4e4cc"
+        }
+      ],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:10:00Z",
+      "notes": "Pricing interaction logged"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "cda1e8fb-4f28-4db2-b8e3-7d03fbb4e4cc",
+      "parent_step_id": "7f5d41df-5e15-4b8d-bb93-bd43f4c5487d",
+      "step_name": "Checkout Page",
+      "step_type": "payment",
+      "url_or_screen": "https://miro.com/checkout/",
+      "platform": "web",
+      "description": "User enters payment information to subscribe to a paid plan.",
+      "inputs": [
+        {
+          "field_id": "card_number",
+          "label": "Credit Card Number",
+          "type": "text",
+          "required": true,
+          "validation_rules": ["must be 16 digits"],
+          "example_value": "4242 4242 4242 4242"
+        },
+        {
+          "field_id": "expiry",
+          "label": "Expiry Date",
+          "type": "text",
+          "required": true,
+          "validation_rules": ["MM/YY format"],
+          "example_value": "12/27"
+        },
+        {
+          "field_id": "cvc",
+          "label": "CVC",
+          "type": "number",
+          "required": true,
+          "validation_rules": ["3 digits"],
+          "example_value": "123"
+        }
+      ],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "0ad5a5e3-7a8e-49d3-a6c1-32de501f890c",
+          "label": "Complete Purchase",
+          "action": "submit",
+          "destination_step_id": "d5c4183b-8a89-4b8a-a9de-943a10d20ed1",
+          "url": "https://miro.com/thank-you/",
+          "conditions": []
+        }
+      ],
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step7_checkout.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "checkout_complete",
+        "event_trigger": "form_submit",
+        "pixel_or_sdk": ["google", "adjust"]
+      },
+      "next_steps": ["d5c4183b-8a89-4b8a-a9de-943a10d20ed1"],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:12:00Z",
+      "notes": "Payment successful"
+    },
+    {
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "step_id": "d5c4183b-8a89-4b8a-a9de-943a10d20ed1",
+      "parent_step_id": "cda1e8fb-4f28-4db2-b8e3-7d03fbb4e4cc",
+      "step_name": "Confirmation Page",
+      "step_type": "subscription",
+      "url_or_screen": "https://miro.com/thank-you/",
+      "platform": "web",
+      "description": "Confirmation screen after successful subscription payment.",
+      "inputs": [],
+      "buttons_or_ctas": [
+        {
+          "cta_id": "f6ed4312-5f09-44e7-b259-0d2f9a5a2124",
+          "label": "Go to Dashboard",
+          "action": "next_step",
+          "destination_step_id": null,
+          "url": "https://miro.com/app/dashboard/",
+          "conditions": []
+        }
+      ],
+      "media_refs": {
+        "screenshots": ["s3://flows/miro/step8_confirmation.png"],
+        "videos": []
+      },
+      "tracking_data": {
+        "event_name": "subscription_confirmed",
+        "event_trigger": "page_load",
+        "pixel_or_sdk": ["google"]
+      },
+      "next_steps": [],
+      "branching_logic": [],
+      "status": "verified",
+      "last_updated_at": "2025-11-10T14:13:00Z",
+      "notes": "Flow complete - paid user"
+    }
+  ],
+  "questionnaires": [
+    {
+      "questionnaire_id": "f13d6b76-09b5-47f3-9b31-c1b42023a6c3",
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "parent_step_id": "94c8c557-7a3e-4e85-bf5a-4a3a8ab6a5a7",
+      "title": "Team Setup Questions",
+      "description": "Collects information about team name and invite preferences.",
+      "questions": [
+        {
+          "question_id": "c32a654b-5d2e-4ed5-bdf1-6cc6e7df0b9b",
+          "order": 1,
+          "text": "Would you like to invite teammates now?",
+          "type": "single_choice",
+          "options": [
+            {"option_id": "opt1", "text": "Yes", "value": "yes", "is_default": false},
+            {"option_id": "opt2", "text": "No", "value": "no", "is_default": true}
+          ],
+          "validation": {"required": true, "rules": []}
+        }
+      ],
+      "media_refs": {"screenshots": ["s3://flows/miro/q_teamsetup.png"]},
+      "next_questionnaire_block_ids": ["b617db4d-67b7-4a2b-aef5-327cfb9f12af"],
+      "last_updated_at": "2025-11-10T14:05:00Z"
+    },
+    {
+      "questionnaire_id": "b617db4d-67b7-4a2b-aef5-327cfb9f12af",
+      "funnel_id": "a8c2b4f1-9c87-4a21-a31a-4d72c54e0f93",
+      "parent_step_id": "88a49dc2-3f5b-4d0c-8a3f-4de8e9274b4f",
+      "title": "Onboarding Personalization",
+      "description": "Collects role, use case, and team size to tailor experience.",
+      "questions": [
+        {
+          "question_id": "q1",
+          "order": 1,
+          "text": "What is your role?",
+          "type": "dropdown",
+          "options": [
+            {"option_id": "r1", "text": "Product Manager", "value": "pm", "is_default": false},
+            {"option_id": "r2", "text": "Designer", "value": "designer", "is_default": false},
+            {"option_id": "r3", "text": "Engineer", "value": "engineer", "is_default": false}
+          ],
+          "validation": {"required": true, "rules": []}
+        },
+        {
+          "question_id": "q2",
+          "order": 2,
+          "text": "How big is your team?",
+          "type": "dropdown",
+          "options": [
+            {"option_id": "t1", "text": "1-5", "value": "small", "is_default": false},
+            {"option_id": "t2", "text": "6-20", "value": "medium", "is_default": false},
+            {"option_id": "t3", "text": "20+", "value": "large", "is_default": false}
+          ],
+          "validation": {"required": true, "rules": []}
+        }
+      ],
+      "media_refs": {"screenshots": ["s3://flows/miro/q_onboarding.png"]},
+      "next_questionnaire_block_ids": [],
+      "last_updated_at": "2025-11-10T14:07:00Z"
+    }
+  ]
+}

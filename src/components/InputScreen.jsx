@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Upload, FileJson, ArrowRight, AlertCircle } from 'lucide-react';
+import { Upload, FileJson, ArrowRight, AlertCircle, Sparkles } from 'lucide-react';
 
 const InputScreen = ({ onDataLoaded }) => {
     const [jsonText, setJsonText] = useState('');
     const [error, setError] = useState(null);
+    const [isLoadingExample, setIsLoadingExample] = useState(false);
 
     const handleParse = () => {
         try {
@@ -32,6 +33,21 @@ const InputScreen = ({ onDataLoaded }) => {
         reader.readAsText(file);
     };
 
+    const handleLoadExample = async () => {
+        setIsLoadingExample(true);
+        setError(null);
+        try {
+            const response = await fetch('/example_flow_json.json');
+            if (!response.ok) throw new Error('Failed to load example file');
+            const data = await response.json();
+            if (!data.steps) throw new Error("Example JSON must contain a 'steps' array.");
+            onDataLoaded(data);
+        } catch (e) {
+            setError("Failed to load example: " + e.message);
+            setIsLoadingExample(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
             <div className="max-w-2xl w-full bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-700">
@@ -44,6 +60,22 @@ const InputScreen = ({ onDataLoaded }) => {
                 </div>
 
                 <div className="p-8 space-y-6">
+                    {/* Load Example Button */}
+                    <button
+                        onClick={handleLoadExample}
+                        disabled={isLoadingExample}
+                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+                    >
+                        <Sparkles size={18} />
+                        {isLoadingExample ? 'Loading Example...' : 'Load Example'}
+                    </button>
+
+                    <div className="flex items-center gap-4">
+                        <div className="h-px flex-1 bg-gray-200 dark:bg-gray-700"></div>
+                        <span className="text-sm text-gray-400 font-medium">OR</span>
+                        <div className="h-px flex-1 bg-gray-200 dark:bg-gray-700"></div>
+                    </div>
+
                     {/* Paste Section */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">

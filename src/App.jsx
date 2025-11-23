@@ -8,7 +8,7 @@ import { LayoutGrid, ChevronLeft, GitBranch, List } from 'lucide-react';
 function App() {
   const [flowData, setFlowData] = useState(null);
   const [selectedStep, setSelectedStep] = useState(null);
-  const [viewMode, setViewMode] = useState('flow'); // 'flow' or 'detailed'
+  const [viewMode, setViewMode] = useState('detailed'); // 'flow' or 'detailed'
 
   const handleDataLoaded = (data) => {
     setFlowData(data);
