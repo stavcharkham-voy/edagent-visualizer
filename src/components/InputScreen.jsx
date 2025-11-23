@@ -64,7 +64,7 @@ const InputScreen = ({ onDataLoaded }) => {
                     <button
                         onClick={handleLoadExample}
                         disabled={isLoadingExample}
-                        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+                        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <Sparkles size={18} />
                         {isLoadingExample ? 'Loading Example...' : 'Load Example'}

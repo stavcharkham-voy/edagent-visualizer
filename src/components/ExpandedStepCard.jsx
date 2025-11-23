@@ -7,7 +7,6 @@ import {
   CreditCard,
   HelpCircle,
   Image as ImageIcon,
-  Activity,
   MousePointerClick,
   CheckCircle,
   XCircle,
@@ -307,37 +306,6 @@ const ExpandedStepCard = ({ step, pricingModel, questionnaires }) => {
             </CollapsibleSection>
           )}
 
-          {/* Tracking */}
-          {step.tracking_data && (
-            <CollapsibleSection
-              title="Tracking & Analytics"
-              icon={Activity}
-              defaultOpen={false}
-            >
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Event Name:</span>
-                  <span className="font-mono text-sm text-gray-900 dark:text-white">{step.tracking_data.event_name}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Trigger:</span>
-                  <span className="font-mono text-sm text-gray-900 dark:text-white">{step.tracking_data.event_trigger}</span>
-                </div>
-                {step.tracking_data.pixel_or_sdk && step.tracking_data.pixel_or_sdk.length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <span className="text-sm text-gray-600 dark:text-gray-400 block mb-2">Pixels/SDKs:</span>
-                    <div className="flex flex-wrap gap-2">
-                      {step.tracking_data.pixel_or_sdk.map((pixel, idx) => (
-                        <span key={idx} className="text-xs bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full">
-                          {pixel}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </CollapsibleSection>
-          )}
 
           {/* Media */}
           {step.media_refs && step.media_refs.screenshots && step.media_refs.screenshots.length > 0 && (
