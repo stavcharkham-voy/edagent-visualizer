@@ -10,7 +10,10 @@ import {
   MousePointerClick,
   CheckCircle,
   XCircle,
-  Info
+  Info,
+  DollarSign,
+  TrendingUp,
+  Activity
 } from 'lucide-react';
 import clsx from 'clsx';
 
@@ -64,7 +67,7 @@ const CollapsibleSection = ({ title, icon: Icon, children, defaultOpen = true })
   );
 };
 
-const ExpandedStepCard = ({ step, pricingModel, questionnaires }) => {
+const ExpandedStepCard = ({ step, pricingModel, questionnaires, metrics }) => {
   const stepType = step.step_type || 'other';
   const questionnaire = step.questionnaire_ref
     ? questionnaires?.find(q => q.questionnaire_id === step.questionnaire_ref)
@@ -119,6 +122,87 @@ const ExpandedStepCard = ({ step, pricingModel, questionnaires }) => {
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
             {step.description}
           </p>
+        )}
+
+        {/* Metrics Section - Only show if metrics are provided */}
+        {metrics && (
+          <CollapsibleSection
+            title="Metrics"
+            icon={Activity}
+            defaultOpen={true}
+          >
+            <div className="space-y-4">
+              {/* CPA */}
+              {metrics.stepCPA && (
+                <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg border border-green-200 dark:border-green-800">
+                  <div className="flex items-center gap-2 mb-1">
+                    <DollarSign size={16} className="text-green-600 dark:text-green-400" />
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white">Cost Per Acquisition (CPA)</span>
+                  </div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+                    ${metrics.stepCPA.cpa}
+                  </div>
+                </div>
+              )}
+
+              {/* Conversion Rates */}
+              {(metrics.incomingConversionRate || metrics.outgoingConversionRate) && (
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg border border-purple-200 dark:border-purple-800">
+                  <div className="flex items-center gap-2 mb-3">
+                    <TrendingUp size={16} className="text-purple-600 dark:text-purple-400" />
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white">Conversion Rates</span>
+                  </div>
+                  <div className="space-y-2">
+                    {metrics.incomingConversionRate && (
+                      <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <span className="font-medium">From {metrics.previousStepName || 'Previous Step'}:</span>
+                        <span className="ml-2 font-bold text-purple-600 dark:text-purple-400">
+                          {metrics.incomingConversionRate.rate}%
+                        </span>
+                      </div>
+                    )}
+                    {metrics.outgoingConversionRate && (
+                      <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <span className="font-medium">To {metrics.nextStepName || 'Next Step'}:</span>
+                        <span className="ml-2 font-bold text-purple-600 dark:text-purple-400">
+                          {metrics.outgoingConversionRate.rate}%
+                        </span>
+                      </div>
+                    )}
+                    {!metrics.incomingConversionRate && !metrics.outgoingConversionRate && (
+                      <div className="text-sm text-gray-500 dark:text-gray-400">No conversion rates available</div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Signals Calculation */}
+              {metrics.signals !== null && metrics.stepCPA && (
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Activity size={16} className="text-blue-600 dark:text-blue-400" />
+                    <span className="text-sm font-semibold text-gray-900 dark:text-white">Signals</span>
+                  </div>
+                  <div className="space-y-1">
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      Total Monthly Spend: <span className="font-mono font-semibold">${metrics.totalMonthlySpend.toLocaleString()}</span>
+                    </div>
+                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                      CPA: <span className="font-mono font-semibold">${metrics.stepCPA.cpa}</span>
+                    </div>
+                    <div className="pt-2 border-t border-blue-200 dark:border-blue-700">
+                      <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
+                        {metrics.signals.toLocaleString()} signals/month
+                      </div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                        Calculated: ${metrics.totalMonthlySpend.toLocaleString()} ÷ ${metrics.stepCPA.cpa} = {metrics.signals.toLocaleString()}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </CollapsibleSection>
         )}
 
         <div className="space-y-3">

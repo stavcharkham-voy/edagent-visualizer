@@ -1,0 +1,12 @@
+<svg width="100" height="28" viewBox="0 0 100 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow square with rounded corners -->
+  <rect width="28" height="28" rx="6" fill="#FFD02F"/>
+  
+  <!-- Three overlapping arrow shapes pointing right -->
+  <path d="M5 9L11 14L5 19V9Z" fill="black"/>
+  <path d="M9 8L15 14L9 20V8Z" fill="black"/>
+  <path d="M13 7L19 14L13 21V7Z" fill="black"/>
+  
+  <!-- "miro" text -->
+  <text x="34" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="black" letter-spacing="0.5px">miro</text>
+</svg>

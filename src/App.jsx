@@ -3,12 +3,13 @@ import InputScreen from './components/InputScreen';
 import FlowCanvas from './components/FlowCanvas';
 import DetailSidebar from './components/DetailSidebar';
 import DetailedView from './components/DetailedView';
-import { LayoutGrid, ChevronLeft, GitBranch, List } from 'lucide-react';
+import CustomerIDView from './components/CustomerIDView';
+import { LayoutGrid, ChevronLeft, GitBranch, List, IdCard } from 'lucide-react';
 
 function App() {
   const [flowData, setFlowData] = useState(null);
   const [selectedStep, setSelectedStep] = useState(null);
-  const [viewMode, setViewMode] = useState('detailed'); // 'flow' or 'detailed'
+  const [viewMode, setViewMode] = useState('customerID'); // 'flow', 'detailed', or 'customerID'
 
   const handleDataLoaded = (data) => {
     setFlowData(data);
@@ -52,6 +53,17 @@ function App() {
           {/* View Toggle */}
           <div className="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
             <button
+              onClick={() => setViewMode('customerID')}
+              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 ${
+                viewMode === 'customerID'
+                  ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+              }`}
+            >
+              <IdCard size={14} />
+              Customer ID
+            </button>
+            <button
               onClick={() => setViewMode('flow')}
               className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 ${
                 viewMode === 'flow'
@@ -82,7 +94,13 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-1 relative">
-        {viewMode === 'flow' ? (
+        {viewMode === 'customerID' ? (
+          <CustomerIDView
+            flowData={flowData}
+            pricingModel={flowData.pricing_model}
+            questionnaires={flowData.questionnaires}
+          />
+        ) : viewMode === 'flow' ? (
           <>
             <FlowCanvas
               data={flowData}

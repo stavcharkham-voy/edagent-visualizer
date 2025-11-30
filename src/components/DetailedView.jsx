@@ -120,6 +120,17 @@ const DetailedView = ({ flowData, pricingModel, questionnaires }) => {
                   </div>
                 )}
 
+                {/* Flow Steps */}
+                {flowData.steps && flowData.steps.length > 0 && (
+                  <div>
+                    <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-4">Flow Steps</h3>
+                    <FlowChart 
+                      steps={flowData.steps || []} 
+                      onStepClick={handleStepClick}
+                    />
+                  </div>
+                )}
+
                 {/* Pricing Model */}
                 {pricingModel && (
                   <div>
@@ -160,12 +171,6 @@ const DetailedView = ({ flowData, pricingModel, questionnaires }) => {
         {/* Grouped Steps */}
         <div className="mb-8">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Flow Steps</h2>
-          
-          {/* Flow Chart */}
-          <FlowChart 
-            steps={flowData.steps || []} 
-            onStepClick={handleStepClick}
-          />
 
           {groupedSteps.length > 0 ? (
             <div className="space-y-6">
